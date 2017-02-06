@@ -22,8 +22,8 @@ public class main{
             int y2 = 0;
 
             try{
-                System.out.println("所持金は" + y0 + "です。");
-                System.out.println("掛金を設定してください？");
+                System.out.println("所持金は" + y0 + "円です。");
+                System.out.println("掛金を設定してください");
                 y2 = Integer.parseInt(y1.readLine());{
                 }
 
@@ -36,6 +36,7 @@ public class main{
 
 
             }
+
             catch (IOException y3) {
             System.out.println("入力エラーが発生したため終了します。");
             System.exit(1);
@@ -44,7 +45,30 @@ public class main{
             catch (NumberFormatException y4) {
             System.out.println("数字を入力してください。");
             continue;
-        }
+            }
+
+            System.out.print("スロット：000");
+
+            long y5 = System.currentTimeMillis() + 1000;
+
+            int y6;
+
+            do {
+                y6 = (int)(Math.random() * 1000);
+                System.out.printf("\b\b\b%03d", y6);
+            }
+            while (System.currentTimeMillis() < y5);
+
+            System.out.println();
+
+            if(y6 == 111){
+                y0 += (y2 * 1000);
+                System.out.println("大当たり！");
+            } else if (y6 % 111 == 0) {
+                y0 += (y2 * 100);
+                System.out.println("当たり！");
+            }
+
 
 
 
